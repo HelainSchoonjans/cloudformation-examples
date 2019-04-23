@@ -69,8 +69,16 @@ aws cloudformation execute-change-set --stack-name example --change-set-name cha
 
 ## Troubleshooting
 
+### Stack already exist
+
+The stack already exist. If you want to remove it ( because it is a failed deployment), use the cleanup command. If you want to updated it, use the update command.
+
 ### No subnets found
 
-`No subnets found for the default VPC 'vpc-901391fb'. Please specify a subnet. (Service: AmazonEC2; Status Code: 400; Error Code: MissingInput; Request ID: c0765f7a-39c4-4ce7-9038-9ecd481732bd)`
+`No subnets found for the default VPC 'vpc-aaaaaaaa'. Please specify a subnet. (Service: AmazonEC2; Status Code: 400; Error Code: MissingInput; Request ID: aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa)`
 
+[List the subnets](https://eu-central-1.console.aws.amazon.com/vpc/home?region=eu-central-1#subnets:sort=tag:Name) in your target region. None of them is the default subnet. You will need to create a default subnet in this region.
 
+To create a default subnet in a region:
+
+    aws ec2 create-default-subnet --availability-zone eu-central-1a
