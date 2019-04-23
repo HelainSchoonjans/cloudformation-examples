@@ -8,6 +8,21 @@ These are some very basic raw CloudFormation template examples.  This examples a
 4. [A Simple Introduction to AWS CloudFormation Part 4: Change Sets = Dry Run Mode](https://medium.com/boltops/a-simple-introduction-to-cloudformation-part-4-change-sets-dry-run-mode-c14e41dfeab7)
 
 
+## Configuration
+
+### Configuring the aws cli
+
+First configure your command line interface to amazon with
+
+    aws configure
+	
+To ensure you have access keys and that a region is specified.
+
+### Create a key pair
+
+Create a key pair named 'tutorial' using the [EC2 console](https://eu-central-1.console.aws.amazon.com/ec2/v2/home?region=eu-central-1#KeyPairs:sort=keyName).
+
+
 ## Commands from Tutorials
 
 ### Tutorial 1
@@ -45,5 +60,17 @@ aws cloudformation describe-change-set --stack-name example --change-set-name ch
 
 aws cloudformation execute-change-set --stack-name example --change-set-name changeset-1
 ```
+
+## Cleanup
+
+### Destroying a stack
+
+    aws cloudformation delete-stack --stack-name single-instance
+
+## Troubleshooting
+
+### No subnets found
+
+`No subnets found for the default VPC 'vpc-901391fb'. Please specify a subnet. (Service: AmazonEC2; Status Code: 400; Error Code: MissingInput; Request ID: c0765f7a-39c4-4ce7-9038-9ecd481732bd)`
 
 
